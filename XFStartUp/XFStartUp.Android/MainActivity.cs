@@ -14,9 +14,9 @@ namespace XFStartUp.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-			XFStartUp.MainPage.Start = Java.Lang.JavaSystem.CurrentTimeMillis();
+            XFStartUp.MainPage.Start = Java.Lang.JavaSystem.CurrentTimeMillis();
 
-			TabLayoutResource = Resource.Layout.Tabbar;
+            TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
@@ -24,10 +24,10 @@ namespace XFStartUp.Droid
             LoadApplication(new App());
         }
 
-		protected override void OnResume()
-		{
-			base.OnResume();
-			XFStartUp.MainPage.End = Java.Lang.JavaSystem.CurrentTimeMillis();
-		}
-	}
+        protected override void OnResume()
+        {
+            base.OnResume();
+            XFStartUp.MainPage.End = Java.Lang.JavaSystem.CurrentTimeMillis();
+        }
+    }
 }

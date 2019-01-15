@@ -7,20 +7,20 @@ using Xamarin.Forms;
 
 namespace XFStartUp
 {
-	public partial class MainPage : ContentPage
-	{
-		public static long Start;
-		public static long End;
+    public partial class MainPage : ContentPage
+    {
+        public static long Start;
+        public static long End;
 
-		public MainPage()
-		{
-			InitializeComponent();
-		}
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
-		private void OnClick(object sender, EventArgs e)
-		{
-			var label = (Label)this.FindByName("Label");
-			label.Text = $"OnResume - OnCreate: {End - Start}ms";
-		}
-	}
+        private void OnClick(object sender, EventArgs e)
+        {
+            var label = (Label)this.FindByName("Label");
+            label.Text = $"OnResume - OnCreate: {End - Start}ms";
+        }
+    }
 }
