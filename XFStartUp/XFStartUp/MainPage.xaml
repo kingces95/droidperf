@@ -8,7 +8,8 @@
         <!-- Place new controls here -->
         <Label x:Name="Label" Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="CenterAndExpand" 
+           FontSize="60"/>
         <Button Text="Show Startup Time" Clicked="OnClick" />
     </StackLayout>
 
