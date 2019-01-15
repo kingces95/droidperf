@@ -20,7 +20,7 @@ namespace XFStartUp
         private void OnClick(object sender, EventArgs e)
         {
             var label = (Label)this.FindByName("Label");
-            label.Text = $"OnResume - OnCreate: {End - Start}ms";
+            label.Text = $"OnResume - OnCreate = {End - Start}ms";
         }
     }
 }

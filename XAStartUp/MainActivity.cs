@@ -55,7 +55,7 @@ namespace XAStartUp
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
             var textview = FindViewById<Android.Support.V7.Widget.AppCompatTextView>(Resource.Id.thetextview);
-            textview.Text = $"OnResume - OnCreate: {End - Start}ms";
+            textview.Text = $"OnResume - OnCreate = {End - Start}ms";
         }
     }
 }

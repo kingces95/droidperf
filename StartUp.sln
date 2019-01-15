@@ -5,7 +5,15 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAStartUp", "XAStartUp\XAStartUp.csproj", "{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XFStartUp", "XFStartUp\XFStartUp\XFStartUp.shproj", "{33F1D85C-B646-47B9-A563-61AF0BC2F498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFStartUp.Android", "XFStartUp\XFStartUp.Android\XFStartUp.Android.csproj", "{E952EBE2-AB0D-4814-829E-775881D18FE3}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		XFStartUp\XFStartUp\XFStartUp.projitems*{33f1d85c-b646-47b9-a563-61af0bc2f498}*SharedItemsImports = 13
+		XFStartUp\XFStartUp\XFStartUp.projitems*{e952ebe2-ab0d-4814-829e-775881d18fe3}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -17,11 +25,17 @@ Global
 		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3BC0AC7E-3B3B-4D3F-9CC0-B2BDECC460A6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E952EBE2-AB0D-4814-829E-775881D18FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E952EBE2-AB0D-4814-829E-775881D18FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E952EBE2-AB0D-4814-829E-775881D18FE3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E952EBE2-AB0D-4814-829E-775881D18FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E952EBE2-AB0D-4814-829E-775881D18FE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E952EBE2-AB0D-4814-829E-775881D18FE3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7EE8F196-E4FF-44E9-BD7A-63A0A7AA6E7C}
+		SolutionGuid = {80644DEB-5D7F-48C9-9DB6-5131F5CB92B9}
 	EndGlobalSection
 EndGlobal

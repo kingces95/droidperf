@@ -4,5 +4,6 @@
     <SelectedDevice>LGE Nexus 5</SelectedDevice>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <DefaultDevice>7_0</DefaultDevice>
   </PropertyGroup>
 </Project>

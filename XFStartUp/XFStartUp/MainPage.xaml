@@ -6,7 +6,7 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label x:Name="Label" Text="Welcome to Xamarin.Forms!" 
+        <Label x:Name="Label" Text="XFStartUp!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
            FontSize="60"/>
