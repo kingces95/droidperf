@@ -1,24 +1,22 @@
 # Android Startup Performance
 Xamarin management has identified Android startup performance as our top issue. 
 
-"Startup performance" could mean different things to different people. For example, [this customer][1], blogs about both time to launch a minimal app (e.g. "Hello World") as well as an app with a moderate XAML homepage. The first would target mono/android stack while the latter would target XAML performance. Both could be targeted, but which first? 
+What, exactly constitutes "Startup performance"? It could mean different things to different people. For example, [this customer][1] blogs about (1) time to launch a minimal app (e.g. "Hello World") and (2) an app with a bit of XAML. The first would target mono/android stack while the latter would target XAML performance. Both could be targeted, but which first? 
 
-To fix the right issue, we need to identify the customer(s) driving this priority to ensure we address their scenario. To do that we need to know what feedback, specifically, management is looking at. Bugs? Twitter? Blog posts? Sales and support? Telemetry? 
+To fix the right issue, the top issue, and to properly measure our progress we need to know the specific feedback management is looking at. Bugs? Twitter? Blog posts? Sales and support? Telemetry? 
 
-Which scenario, exactly, are we aiming at?
+Which scenario, exactly, are we optimizing? This is step 0.
 # Blog
 _January 14th, 2019_
 
-Just to get going, we assume we're minimizing cold/hot launch times of our template projects. That's the default experience we expose so we should track it regardless and compare it against out competitors default startup time.
+Just to get going, let's assume we're minimizing hot launch times of our template projects. That's the default experience we expose so we should track it regardless. We should also compare it against our competitors default startup times.
 
-At a minimum, our scenarios are: 
+Our scenarios are: 
 * The Xamarin Forms Android template project
 * The Xamarin Android template project
 * A native Java Android project
 
-We'll instrument roughly for starters. For example, [this customer][1] simply used `Java.Lang.JavaSystem.CurrentTimeMillis()` to time the difference between `onCreate` and `onResume`. While that does not even capture the entire startup stack, it was sufficient to get this project off the ground. So we might as well start there. 
-
-Just for fun we, took slow motion video capture of [Xamarin.Android][XAStartUp] and [Xamarin.Forms][XFStartUp] starting up so. With that we can compare:
+[This customer][1] simply used `Java.Lang.JavaSystem.CurrentTimeMillis()` to time the difference between `onCreate` and `onResume`. That was enough to kick off this project, so we might as well start there! Because that will not capture the entire startup stack we, just for fun, took slow motion video capture of [Xamarin.Android][XAStartUp] and [Xamarin.Forms][XFStartUp] starting up. With those numbers we can compare:
 * WC: Wall Clock
 * C#: `onResume` - `onCreate`, roughly managed code
 * Mono: WC - C#, roughly unmanaged code
