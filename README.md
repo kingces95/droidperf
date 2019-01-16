@@ -17,18 +17,19 @@ Our scenarios are:
 * The Xamarin Android template project
 * A native Java Android project
 
-[This customer][1] simply used `Java.Lang.JavaSystem.CurrentTimeMillis()` to time the difference between `onCreate` and `onResume`. That was enough to kick off this project, so we might as well start there! Because that will not capture the entire startup stack we, just for fun, took slow motion video capture of [Xamarin.Android][XAStartUp] and [Xamarin.Forms][XFStartUp] starting up. With those numbers we can compare:
+[This customer][1] simply used `Java.Lang.JavaSystem.CurrentTimeMillis()` to time the difference between `onCreate` and `onResume`. That was enough to kick off this project, so we might as well start there! Because that will not capture the entire startup stack we, just for fun, took slow motion video capture of [Android Studio][ASStartUp], [Xamarin.Android][XAStartUp], and [Xamarin.Forms][XFStartUp] starting up. And all three [side by side][StartUp]. With those numbers we can compare:
 * WC: Wall Clock
 * App: `onResume` - `onCreate`, application inc XF
 * Mono/XA: WC - C#, roughly mono + XA
 
 |Plat|WC|%|App|%|Mono+XA|%
 |---:|---:|---:|---:|---:|---:|---:|
-|XF|2150ms| |875ms| 40%|1275ms| 60%|
+|AS|500ms||158ms|31%|
 |XA|1200ms| |113ms| 10%|1087ms| 90%|
-|XF vs XA|+950ms| +80%|+762ms| +8x|+188| -20%|
+|XF|2150ms| |875ms| 40%|1275ms| 60%|
+|XF vs XA|+950ms| +80%|+762ms| |+188| -20%|
 
-So, at first glance, XF template takes almost %60-80 longer to load as a plain XA project.
+So, XF template takes almost very roughly %80 longer to load than a XA template project. So next well try and strip a XF project down (remove XAML for starters) and see how close we can get to XA. 
 
 After we get crawling, Marek Habersack of the Android team has suggested using [SimplePerf][SimplePerf] profiler. 
 
@@ -53,17 +54,9 @@ A list of the build switches that affect performance.
 # Resources
 * [SimplePerf][SimplePerf]: A tool which can help measuring native performance with very little overhead.
 
-# Notes
-In reverse chronological order.
-## Now
-* Rolled up results into README.
-* Captured slow motion video of [XFStartUp][XFStartUp] and [XAStartUp][XAStartup] which shows, roughly, the mono startup time.
-* Add Xamarin Forms `XFStartUp` app and Xamarin Android `XAStartUp` app from the template projects modified slightly to display the duration between `onCreate` and `onResume`.
-* Create repository and this README.
-## January
-
-
 [1]: https://programistologia.pl/2019/01/03/en-what-bothers-xamarin-developers-part-3/
 [SimplePerf]: https://android.googlesource.com/platform/system/extras/+/master/simpleperf/doc/README.md
 [XAStartUp]: https://m.youtube.com/watch?v=G9ylTGtsy5s
 [XFStartUp]: https://www.youtube.com/watch?v=cKz8KDs1NAA
+[ASStartUp]: https://m.youtube.com/watch?v=meGBmexhtPo
+[StartUp]: https://youtu.be/Qw5LVO8Xp1E
