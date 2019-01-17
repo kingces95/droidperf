@@ -17,7 +17,7 @@ Our scenarios are:
 * The Xamarin Android template project
 * A native Java Android project
 
-[This customer][1] simply used `Java.Lang.JavaSystem.CurrentTimeMillis()` to time the difference between `onCreate` and `onResume`. That was enough to kick off this project, so we might as well start there! Because that will not capture the entire startup stack we, just for fun, took slow motion video capture of [Android Studio][ASStartUp], [Xamarin.Android][XAStartUp], and [Xamarin.Forms][XFStartUp] starting up. And all three [side by side][StartUp]. With those numbers we can compare:
+[This customer][1] simply used `Java.Lang.JavaSystem.CurrentTimeMillis()` to time the difference between `onCreate` and `onResume`. That was enough to kick off this project, so we might as well start there! Because that will not capture the entire startup stack we, just for fun, took slow motion video capture of [Android Studio][ASStartUp], [Xamarin.Android][XAStartUp], [Xamarin.Android +AOT][XAAotUp], [Xamarin.Forms][XFStartUp], and [Xamarin.Forms +AOT][XFAotUp] starting up. And all [side by side][StartUp]. With those numbers we can compare:
 * WC: Wall Clock
 * App: `onResume` - `onCreate`, application inc XF
 * Mono/XA: WC - C#, roughly mono + XA
@@ -25,11 +25,16 @@ Our scenarios are:
 |Plat|WC|%|App|%|Mono+XA|%
 |---:|---:|---:|---:|---:|---:|---:|
 |AS|500ms||158ms|31%|
+|XA+AOT|750ms| |109ms| 14%|641ms| 85%|
 |XA|1200ms| |113ms| 10%|1087ms| 90%|
+|XF+AOT|1200ms| |417ms|34%|780ms| 65%|
 |XF|2150ms| |875ms| 40%|1275ms| 60%|
 |XF vs XA|+950ms| +80%|+762ms| |+188| -20%|
 
-So, XF template takes almost very roughly %80 longer to load than a XA template project. So next well try and strip a XF project down (remove XAML for starters) and see how close we can get to XA. 
+So, 
+* XF template takes almost very roughly %80 longer to load than a XA template project. So next well try and strip a XF project down (remove XAML for starters) and see how close we can get to XA.
+* AOT helps a ton but is still marked experimental and only available in VS Enterprise. Mgmt is discussing. 
+
 
 After we get crawling, Marek Habersack of the Android team has suggested using [SimplePerf][SimplePerf] profiler. 
 
@@ -49,14 +54,21 @@ A list of the build switches that affect performance.
 * `release`: Use release builds
 * `linker`: Use full linking
 * `XAML compiler`: Precompile the XAML
-* `aot`: ?
+* `AOT`: Has a large impact on startup performance. Right now, it's only available to VS Ent customers. It's also marked experimental. 
 
 # Resources
+* [Prepare For Release][ReleasePrep]: Our docs on what to do before shipping. 
 * [SimplePerf][SimplePerf]: A tool which can help measuring native performance with very little overhead.
+* [Adam Pedley][Pedley]: Nice blog post of template startup times with various build options.
 
 [1]: https://programistologia.pl/2019/01/03/en-what-bothers-xamarin-developers-part-3/
 [SimplePerf]: https://android.googlesource.com/platform/system/extras/+/master/simpleperf/doc/README.md
 [XAStartUp]: https://m.youtube.com/watch?v=G9ylTGtsy5s
+[XAAotUp]: https://m.youtube.com/watch?v=3RLjpKAUVn4
 [XFStartUp]: https://www.youtube.com/watch?v=cKz8KDs1NAA
+[XFAotUp]: https://m.youtube.com/watch?v=lVG-CEt78L0
 [ASStartUp]: https://m.youtube.com/watch?v=meGBmexhtPo
 [StartUp]: https://youtu.be/Qw5LVO8Xp1E
+[Pedley]: https://xamarinhelp.com/improving-xamarin-forms-startup-performance/
+
+[ReleasePrep]: https://docs.microsoft.com/en-us/xamarin/android/deploy-test/release-prep/?tabs=windows#AOT_Compilation
