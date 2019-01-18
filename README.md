@@ -68,7 +68,7 @@ A list of the build switches that affect performance.
 [XFStartUp]: https://www.youtube.com/watch?v=cKz8KDs1NAA
 [XFAotUp]: https://m.youtube.com/watch?v=lVG-CEt78L0
 [ASStartUp]: https://m.youtube.com/watch?v=meGBmexhtPo
-[StartUp]: https://youtu.be/Qw5LVO8Xp1E
+[StartUp]: https://youtu.be/fyv2rIV6K1s
 [Pedley]: https://xamarinhelp.com/improving-xamarin-forms-startup-performance/
 
 [ReleasePrep]: https://docs.microsoft.com/en-us/xamarin/android/deploy-test/release-prep/?tabs=windows#AOT_Compilation
