@@ -14,12 +14,20 @@ namespace XFMinUp.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            XFMinUp.App.Start = Java.Lang.JavaSystem.CurrentTimeMillis();
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            XFMinUp.App.End = Java.Lang.JavaSystem.CurrentTimeMillis();
         }
     }
 }
