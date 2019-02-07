@@ -14,11 +14,11 @@ Added `Xamarin.Forms.Profile` which allows self profiling of startup. The class 
 
 It's interesting to note that simply allocating the memory for `Profiler` takes 20% of the total profiled time. I'm guessing this has to do with allocation.  After initialization the profile allocates no memory so long as less than 1k samples are taken. Regardless, the profiler clearly cannot be enabled in release. Instead, all the `Profile` calls return `void` so they can be attributed `Conditional` and enabled via the define `PROFILE`. 
 
-The result looks like this:
+Here is an example of a profile of [`XFFastUp`](https://github.com/kingces95/droidperf/blob/master/XFMinUp/XFFastUp.Android/MainActivity.cs) which is the template Xamarin Forms application, without XAML, with FastRenderers enabled:
 
 ![profile](./profile.png "Logo Title Text 1")
 
-The above is a profile of `XFMinUp` which is the template Xamarin Forms application, without XAML, with FastRenderers enabled. The first thing to go after is `OnCreate (Forms.Init)` and see how many of our initialization bits can be deferred or made early bound. For example, the `AndroidTicker` may not need to be initialized so early. And `RegisterAll` can be made early bound. 
+The first thing to go after is `OnCreate (Forms.Init)` and see how many of our initialization bits can be deferred or made early bound. For example, the `AndroidTicker` may not need to be initialized so early. And `RegisterAll` can be made early bound. 
 
 
 _January_
