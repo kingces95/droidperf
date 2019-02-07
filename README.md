@@ -8,6 +8,19 @@ To fix the right issue, the top issue, and to properly measure our progress we n
 
 Is this the top priority? And if so, which scenario, exactly, are we optimizing? This is step 0.
 # Blog
+_February_ 
+
+Added `Xamarin.Forms.Profile` which allows self profiling of startup. The class is public but browser hidden. Like a profiler, it allows collection of a tree of timings. Instrumentation starts with a call to `Profile.Push("description")` and ends with a call to `Profile.Pop()`. The logic between those calls can be partitioned by calling `Profile.PushPop("description")`. Instrumentation ends with a call to `Profile.Stop()` at which point the stack is unwound and those frames discarded. The data is accessible via `Profile.Data`. 
+
+It's interesting to note that simply allocating the memory for `Profiler` takes 20% of the total profiled time. I'm guessing this has to do with allocation.  After initialization the profile allocates no memory so long as less than 1k samples are taken. Regardless, the profiler clearly cannot be enabled in release. Instead, all the `Profile` calls return `void` so they can be attributed `Conditional` and enabled via the define `PROFILE`. 
+
+The result looks like this:
+
+![profile](./profile.png "Logo Title Text 1")
+
+The above is a profile of `XFMinUp` which is the template Xamarin Forms application, without XAML, with FastRenderers enabled. The first thing to go after is `OnCreate (Forms.Init)` and see how many of our initialization bits can be deferred or made early bound. For example, the `AndroidTicker` may not need to be initialized so early. And `RegisterAll` can be made early bound. 
+
+
 _January_
 
 Just to get going, let's assume we're minimizing hot launch times of our template projects. That's the default experience we expose so we should track it regardless. We should also compare it against our competitors default startup times.

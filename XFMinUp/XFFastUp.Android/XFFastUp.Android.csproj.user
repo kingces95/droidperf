@@ -2,6 +2,6 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SelectedDevice>LGE Nexus 5</SelectedDevice>
-    <DefaultDevice>7_0</DefaultDevice>
+    <DefaultDevice>8_0</DefaultDevice>
   </PropertyGroup>
 </Project>
