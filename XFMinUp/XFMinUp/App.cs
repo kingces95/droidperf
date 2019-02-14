@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Forms.Internal;
 using Xamarin.Forms.Xaml;
 
 namespace XFMinUp
@@ -98,7 +99,7 @@ namespace XFMinUp
 					Name = datum.Name,
 					Id = datum.Id,
 					Depth = datum.Depth,
-					Ticks = datum.Ticks ?? 0L
+					Ticks = datum.Ticks < 0 ? 0L : (long)datum.Ticks
 				});
 			}
 			var i = 0;
