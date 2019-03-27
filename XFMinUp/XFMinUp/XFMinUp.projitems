@@ -9,6 +9,7 @@
     <Import_RootNamespace>XFMinUp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ProfilePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
   </ItemGroup>
 </Project>
