@@ -14,9 +14,6 @@ namespace XFMinUp
 		const int Extra = 0;
 
 		public static string AppName;
-		public static long Start;
-		public static long End;
-		public static List<Datum> Data = new List<Datum>();
 
 		public App()
 		{

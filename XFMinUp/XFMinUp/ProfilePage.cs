@@ -19,11 +19,6 @@ public class Datum
 public static class ContentPageEx
 {
 	const long MS = TimeSpan.TicksPerMillisecond;
-	const int Extra = 0;
-
-	public static string AppName;
-	public static long Start;
-	public static long End;
 	public static List<Datum> Data = new List<Datum>();
 
 	private static void ASSERT(bool condition)
@@ -98,7 +93,6 @@ public static class ContentPageEx
 			});
 		}
 		var i = 0;
-		var totalMs = End - Start;
 		var profiledMs = GatherTicks(ref i) / MS;
 
 		var scrollView = new ScrollView();
@@ -129,7 +123,6 @@ public static class ContentPageEx
 		Action update = delegate ()
 		{
 			var sb = new StringBuilder();
-			sb.AppendLine($"Custom = {totalMs}ms, ({totalMs - profiledMs}ms)");
 			sb.AppendLine($"Profiled: {profiledMs}ms");
 			AppendProfile(sb, profiledMs, showZeros);
 			label.Text = sb.ToString();
