@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\XFMinUp\XFMinUp\ProfilePage.cs" Link="ProfilePage.cs" />
+    <Compile Include="..\..\ProfilePage.cs" Link="ProfilePage.cs" />
   </ItemGroup>
 
   <ItemGroup>
