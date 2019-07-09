@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using XFShellUp.Models;
 using XFShellUp.Views;
 using XFShellUp.ViewModels;
+using Xamarin.Forms.Internals;
 
 namespace XFShellUp.Views
 {
