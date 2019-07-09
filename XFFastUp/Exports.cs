@@ -34,7 +34,7 @@ namespace XFMinUp.Droid
 			new ExportRendererAttribute(typeof(ScrollView), typeof(ScrollViewRenderer)),
 			new ExportRendererAttribute(typeof(ActivityIndicator), typeof(ActivityIndicatorRenderer)),
 			new ExportRendererAttribute(typeof(Frame), typeof(FrameRenderer)),
-			new ExportRendererAttribute(typeof(OpenGLView), typeof(OpenGLViewRenderer)),
+			//new ExportRendererAttribute(typeof(OpenGLView), typeof(OpenGLViewRenderer)),
 
 			new ExportRendererAttribute(typeof(TabbedPage), typeof(TabbedRenderer)),
 			new ExportRendererAttribute(typeof(NavigationPage), typeof(NavigationRenderer)),

@@ -2,7 +2,6 @@
 using System.Windows.Input;
 
 using Xamarin.Forms;
-using XFShellUp.Views;
 
 namespace XFShellUp.ViewModels
 {
@@ -12,9 +11,7 @@ namespace XFShellUp.ViewModels
         {
             Title = "About";
 
-            OpenWebCommand = new Command(() => {
-                AboutPage.Singleton.LoadProfile();
-            });
+            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
         }
 
         public ICommand OpenWebCommand { get; }

@@ -7,7 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
-using Xamarin.Forms.Internal;
+using Xamarin.Forms.Internals;
 using System.Reflection;
 using System.Threading;
 using Xamarin.Forms.Platform.Android;
@@ -34,21 +34,23 @@ namespace XFMinUp.Droid
 
 		protected override void OnCreate(Bundle savedInstanceState)
         {
-			Profile.Push("ignore");
-			Profile.Pop();
+            Profile.Start();
 
-			Profile.Push("OnResume-OnCreate");
+			Profile.FrameBegin("ignore");
+			Profile.FrameEnd();
 
-			Profile.Push("OnCreate");
+			Profile.FrameBegin("OnResume-OnCreate");
+
+			Profile.FrameBegin("OnCreate");
             {
-                Profile.PopPush("base.OnCreate");
+                Profile.FramePartition("base.OnCreate");
                 {
                     TabLayoutResource = Resource.Layout.Tabbar;
                     ToolbarResource = Resource.Layout.Toolbar;
 
                     base.OnCreate(savedInstanceState);
                 }
-                Profile.PopPush("Forms.Init");
+                Profile.FramePartition("Forms.Init");
                 {
                     App.AppName = "XFFastUp";
                     Forms.SetFlags("FastRenderers_Experimental");
@@ -65,7 +67,7 @@ namespace XFMinUp.Droid
                                 EffectScopes = null,
                                 Flags = ActivationFlags.NoCss
                             };
-                            Forms.Init(activation);
+                            Forms.Initialize(activation);
                             break;
 
                         case InitType.Async:
@@ -86,22 +88,22 @@ namespace XFMinUp.Droid
                 }
 
                 App app;
-                Profile.PopPush("new App()");
+                Profile.FramePartition("new App()");
                 {
                     app = new App();
                 }
-                Profile.PopPush("LoadApplication()");
+                Profile.FramePartition("LoadApplication()");
                 {
                     LoadApplication(app);
                 }
             }
-			Profile.Pop(); // OnCreate
+			Profile.FrameEnd(); // OnCreate
 		}
 
 		protected override void OnResume()
         {
             base.OnResume();
-			Profile.Pop(); // OnResume-OnCreate
+			Profile.FrameEnd(); // OnResume-OnCreate
 		}
 	}
 }

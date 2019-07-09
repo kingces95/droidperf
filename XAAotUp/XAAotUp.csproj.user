@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
-    <SelectedDevice>LGE Nexus 5</SelectedDevice>
+    <SelectedDevice>OnePlus A6010</SelectedDevice>
     <DefaultDevice>7_0</DefaultDevice>
   </PropertyGroup>
 </Project>

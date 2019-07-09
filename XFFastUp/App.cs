@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
-using Xamarin.Forms.Internal;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace XFMinUp

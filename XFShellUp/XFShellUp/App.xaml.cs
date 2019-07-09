@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFShellUp.Services;
 using XFShellUp.Views;
 
 namespace XFShellUp
@@ -12,7 +13,7 @@ namespace XFShellUp
         {
             InitializeComponent();
 
-
+            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
