@@ -14,8 +14,29 @@
     <Compile Include="..\..\ProfilePage.cs" Link="ProfilePage.cs" />
   </ItemGroup>
 
+  <ItemGroup>  
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />  
+    <PackageReference Include="Xamarin.Forms" Version="9.9.153" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="9.9.2" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="AppShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ItemDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\ItemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\NewItemPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

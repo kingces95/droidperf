@@ -58,14 +58,14 @@ namespace XFMinUp.Droid
                     switch (Init)
                     {
                         case InitType.Explicit:
-                            var activation = new ActivationOptions()
+                            var activation = new InitializationOptions()
                             {
                                 Activity = this,
                                 Bundle = savedInstanceState,
                                 ResourceAssembly = Assembly.GetExecutingAssembly(),
                                 Handlers = Exports.Handlers,
                                 EffectScopes = null,
-                                Flags = ActivationFlags.NoCss
+                                Flags = InitializationFlags.NoCss
                             };
                             Forms.Initialize(activation);
                             break;
