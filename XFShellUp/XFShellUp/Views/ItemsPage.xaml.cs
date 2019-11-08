@@ -42,7 +42,7 @@ namespace XFShellUp.Views
 
         /*async*/ void AddItem_Clicked(object sender, EventArgs e)
         {
-            ((ContentPage)this).LoadProfile();
+            this.LoadProfile();
 
             //await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }

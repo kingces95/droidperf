@@ -24,24 +24,11 @@ namespace XFShellUp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Profile.Start();
+			Anticipator.Initialize(this);
 
-            Profile.FrameBegin("Startup");
+			Profile.FrameBegin("Startup");
 
-            Profile.FramePartition("Anticipate Toolbar/FlyoutContent");
-            Anticipator.Anticipate(() =>
-            {
-                RuntimeHelpers.RunClassConstructor(typeof(Resource.Layout).TypeHandle);
-                //Anticipator.Anticipate(LayoutInflater, Resource.Layout.Toolbar);
-                Anticipator.Anticipate(LayoutInflater, Resource.Layout.FlyoutContent);
-            });
-            Anticipator.Anticipate(() => 
-                ResourceManager.Init(Assembly.GetExecutingAssembly())
-            );
-
-            //ToolbarResource = Resource.Layout.Toolbar;
-            //TabLayoutResource = Resource.Layout.Tabbar;
-
-            Profile.FramePartition("OnCreate");
+			Profile.FramePartition("OnCreate");
             base.OnCreate(savedInstanceState);
 
             Profile.FramePartition("Forms.SetFlags");
@@ -58,15 +45,15 @@ namespace XFShellUp.Droid
                 ResourceAssembly = Assembly.GetExecutingAssembly(),
                 Handlers = Exports.Handlers,
                 EffectScopes = null,
-                Flags = InitializationFlags.NoCss
+                Flags = InitializationFlags.DisableCss
             };
-            Forms.Initialize(activation);
+            Forms.Init(activation);
             //Forms.Forms.Init(this, savedInstanceState);
-            Profile.FrameEnd();
+            Profile.FrameEnd("Startup");
 
             Profile.FrameBegin("Create App");
             var app = new App();
-            Profile.FrameEnd();
+            Profile.FrameEnd("Create App");
 
             Profile.FrameBegin("Render App");
             LoadApplication(app);
@@ -75,7 +62,7 @@ namespace XFShellUp.Droid
         protected override void OnResume()
         {
             base.OnResume();
-            Profile.FrameEnd();
+            Profile.FrameEnd("Render App");
         }
 
         //public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

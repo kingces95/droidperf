@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>LGE Nexus 5</SelectedDevice>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <DefaultDevice>pixel_2_pie_9_0_api_28</DefaultDevice>
   </PropertyGroup>
 </Project>

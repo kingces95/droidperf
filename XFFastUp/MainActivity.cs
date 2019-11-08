@@ -65,9 +65,9 @@ namespace XFMinUp.Droid
                                 ResourceAssembly = Assembly.GetExecutingAssembly(),
                                 Handlers = Exports.Handlers,
                                 EffectScopes = null,
-                                Flags = InitializationFlags.NoCss
+                                Flags = InitializationFlags.DisableCss
                             };
-                            Forms.Initialize(activation);
+                            Forms.Init(activation);
                             break;
 
                         case InitType.Async:
