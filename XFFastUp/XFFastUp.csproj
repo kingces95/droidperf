@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>9.9.556</Version>
+      <Version>9.9.25</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -21,12 +21,18 @@ namespace XFShellUp.Droid
     [Activity(Label = "XFShellUp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        CpuUsage __cpuStart;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Profile.Start();
-			Anticipator.Initialize(this);
-
 			Profile.FrameBegin("Startup");
+
+            Profile.FramePartition("CpuUsage.Now");
+            __cpuStart = CpuUsage.Now;
+
+            Profile.FramePartition("AndroidAnticipator.Initialize");
+			//AndroidAnticipator.Initialize(this);
 
 			Profile.FramePartition("OnCreate");
             base.OnCreate(savedInstanceState);
@@ -49,6 +55,7 @@ namespace XFShellUp.Droid
             };
             Forms.Init(activation);
             //Forms.Forms.Init(this, savedInstanceState);
+
             Profile.FrameEnd("Startup");
 
             Profile.FrameBegin("Create App");
@@ -62,6 +69,13 @@ namespace XFShellUp.Droid
         protected override void OnResume()
         {
             base.OnResume();
+
+            AndroidAnticipator.ReportUnused();
+
+			Profile.FramePartition("CpuUsage.Now");
+            var cpuNow = CpuUsage.Now;
+            Profile.WriteLog("CPU UTIL {0}%", cpuNow - __cpuStart);
+
             Profile.FrameEnd("Render App");
         }
 
