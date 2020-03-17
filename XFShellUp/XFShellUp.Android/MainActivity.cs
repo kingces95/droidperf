@@ -29,7 +29,7 @@ namespace XFShellUp.Droid
 			Profile.FrameBegin("Startup");
 
             Profile.FramePartition("CpuUsage.Now");
-            __cpuStart = CpuUsage.Now;
+            //__cpuStart = CpuUsage.Now;
 
             Profile.FramePartition("AndroidAnticipator.Initialize");
 			//AndroidAnticipator.Initialize(this);
@@ -73,8 +73,8 @@ namespace XFShellUp.Droid
             AndroidAnticipator.ReportUnused();
 
 			Profile.FramePartition("CpuUsage.Now");
-            var cpuNow = CpuUsage.Now;
-            Profile.WriteLog("CPU UTIL {0}%", cpuNow - __cpuStart);
+            //var cpuNow = CpuUsage.Now;
+            //Profile.WriteLog("CPU UTIL {0}%", cpuNow - __cpuStart);
 
             Profile.FrameEnd("Render App");
         }
